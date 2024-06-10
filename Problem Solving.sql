@@ -17,8 +17,11 @@ select * from Invites;
 select  nom ,statut from Invites;
 
 
- select sun(nom) 
+ select COUNT(id_invite) AS alias 
  from Invites;
+ 
+ select COUNT(id_invite) AS alias
+  from Invites where (statut = 'Suspect');
 
 CREATE TABLE Rooms (
     id_room INT PRIMARY KEY,
@@ -40,17 +43,20 @@ CREATE TABLE Mouvements (
     FOREIGN KEY (id_room) REFERENCES Rooms(id_room)
 );
 
-INSERT INTO exampl.Movements (id_mouvement,  id_invite, room_id, time) VALUES( 1, 1, '2023-06-01');
-(2, 1, '2023-06-01'),
-(3, 2, '2023-06-01'),
-(4, 3, '2023-06-01'),
-(1, 2, '2023-06-02');
+INSERT INTO exampl.Mouvements (id,  id_invite, id_room, time) VALUES( 1, 1, '2023-06-01');
+
 CREATE TABLE Objets (
     id_objet INT PRIMARY KEY,
     nom_objet VARCHAR(50),
     id_room INT,
     FOREIGN KEY (id_room) REFERENCES Rooms(id_room)
 );
+
+INSERT INTO exampl.Objets (id_objet, nom_objet, id_room) VALUES (1,'Vase Ancien', 1);
+INSERT INTO exampl.Objets (id_objet, nom_objet, id_room) VALUES (2,'Tableau de Maître', 2);
+INSERT INTO exampl.Objets (id_objet, nom_objet, id_room) VALUES (3,'Statue en Bronze', 3);
+INSERT INTO exampl.Objets (id_objet, nom_objet, id_room) VALUES (4,'Coffre à Bijoux', 2);
+INSERT INTO exampl.Objets (id_objet, nom_objet, id_room) VALUES (5,'Lampe en Cristal', 4);
 
 CREATE TABLE Indices (
     id_indice INT PRIMARY KEY,
