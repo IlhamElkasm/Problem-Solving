@@ -14,6 +14,7 @@ INSERT INTO exampl.Invites (id_invite, nom, statut) VALUES (4,'Isaac Newton','In
 INSERT INTO exampl.Invites (id_invite, nom, statut) VALUES (5,'Niels Bohr','Suspect');
 
 select * from Invites;
+select  nom ,statut from Invites;
 
 CREATE TABLE Rooms (
     id_room INT PRIMARY KEY,
